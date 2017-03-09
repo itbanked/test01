@@ -156,3 +156,4 @@ select
  on d.deptno = e.deptno;
  
  select * from emp;
+ 

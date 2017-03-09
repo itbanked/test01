@@ -2,6 +2,9 @@ package com.example.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class Dept {
 
 	private int deptno;
@@ -20,7 +23,20 @@ public class Dept {
 	public Dept() {
 		// TODO Auto-generated constructor stub
 	}
-
+	@Override
+	public String toString() {
+		String str = null;
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		try {
+			str = mapper.writeValueAsString(this);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		
+		return str;
+	}
 	/**
 	 * @return the deptno
 	 */
